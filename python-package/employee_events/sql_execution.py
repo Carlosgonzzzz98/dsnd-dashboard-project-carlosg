@@ -7,7 +7,6 @@ import pandas as pd
 # that points to the absolute path for the `employee_events.db` file
 db_path = Path(__file__).parent / "employee_events.db"
 
-
 # OPTION 1: MIXIN
 # Define a class called `QueryMixin`
 class QueryMixin:
@@ -17,23 +16,22 @@ class QueryMixin:
     # and returns the query's result
     # as a pandas dataframe
     #### YOUR CODE HERE
-
+    
     # Define a method named `query`
     # that receives an sql_query as a string
     # and returns the query's result as
     # a list of tuples. (You will need
     # to use an sqlite3 cursor)
     #### YOUR CODE HERE
-    
+    pass
 
- 
- # Leave this code unchanged
+
+# Leave this code unchanged
 def query(func):
     """
     Decorator that runs a standard sql execution
     and returns a list of tuples
     """
-
     @wraps(func)
     def run_query(*args, **kwargs):
         query_string = func(*args, **kwargs)
