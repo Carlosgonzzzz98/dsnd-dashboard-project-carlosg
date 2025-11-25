@@ -132,7 +132,7 @@ class LineChart(MatplotlibViz):
         # Reference the base_components/matplotlib_viz file 
         # to inspect the supported keyword arguments
         #### YOUR CODE HERE
-        self.set_axis_styling(ax, bordercolor='black', font_color='black')
+        self.set_axis_styling(ax, bordercolor='black', fontcolor='black')
         
         # Set title and labels for x and y axis
         #### YOUR CODE HERE
