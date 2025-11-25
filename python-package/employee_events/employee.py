@@ -2,7 +2,9 @@
 from .query_base import QueryBase
 # Import dependencies needed for sql execution
 # from the `sql_execution` module
-from .sql_execution import query
+from .sql_execution import query, db_path
+import pandas as pd
+import sqlite3
 
 # Define a subclass of QueryBase
 # called Employee
@@ -56,11 +58,14 @@ class Employee(QueryBase):
     # the sql query
     #### YOUR CODE HERE
     def model_data(self, id):
-        return f"""
+        connection = sqlite3.connect(db_path)
+        df = pd.read_sql_query(f"""
             SELECT SUM(positive_events) positive_events
                  , SUM(negative_events) negative_events
             FROM {self.name}
             JOIN employee_events
                 USING({self.name}_id)
             WHERE {self.name}.{self.name}_id = {id}
-        """
+        """, connection)
+        connection.close()
+        return df
