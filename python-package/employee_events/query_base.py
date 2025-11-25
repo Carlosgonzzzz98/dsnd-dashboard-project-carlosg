@@ -16,10 +16,16 @@ class QueryBase:
     @query
     def names(self):
         # Return an empty list
-        return f"""
-            SELECT {self.name}_id, {self.name}_name
-            FROM {self.name}
-        """
+        if self.name == "employee":
+            return f"""
+                SELECT {self.name}_id, first_name || ' ' || last_name AS name
+                FROM {self.name}
+            """
+        else:
+            return f"""
+                SELECT {self.name}_id, {self.name}_name
+                FROM {self.name}
+            """
     
     # Define an `event_counts` method
     # that receives an `id` argument
