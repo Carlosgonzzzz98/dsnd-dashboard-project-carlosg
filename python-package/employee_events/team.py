@@ -1,7 +1,9 @@
 # Import the QueryBase class
 from .query_base import QueryBase
 # Import dependencies for sql execution
-from .sql_execution import query
+from .sql_execution import query, db_path
+import pandas as pd
+import sqlite3
 
 # Create a subclass of QueryBase
 # called  `Team`
@@ -53,7 +55,8 @@ class Team(QueryBase):
     # the sql query
     #### YOUR CODE HERE
     def model_data(self, id):
-        return f"""
+        connection = sqlite3.connect(db_path)
+        df = pd.read_sql_query(f"""
             SELECT positive_events, negative_events FROM (
                 SELECT employee_id
                      , SUM(positive_events) positive_events
@@ -64,4 +67,6 @@ class Team(QueryBase):
                 WHERE {self.name}.{self.name}_id = {id}
                 GROUP BY employee_id
             )
-        """
+        """, connection)
+        connection.close()
+        return df
