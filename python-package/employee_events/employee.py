@@ -58,6 +58,10 @@ class Employee(QueryBase):
     # the sql query
     #### YOUR CODE HERE
     def model_data(self, id):
+        import pandas as pd
+        import sqlite3
+        from .sql_execution import db_path
+        
         connection = sqlite3.connect(db_path)
         df = pd.read_sql_query(f"""
             SELECT SUM(positive_events) positive_events
