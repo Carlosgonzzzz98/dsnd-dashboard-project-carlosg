@@ -7,22 +7,20 @@ import sqlite3
 # Use inheritance to add methods
 # for querying the employee_events database.
 class QueryBase:
-
     # Create a class attribute called `name`
     # set the attribute to an empty string
-        name = ""
-
+    name = ""
+    
     # Define a `names` method that receives
     # no passed arguments
     @query
     def names(self):
-        
         # Return an empty list
         return f"""
             SELECT {self.name}_id, {self.name}_name
             FROM {self.name}
         """
-
+    
     # Define an `event_counts` method
     # that receives an `id` argument
     # This method should return a pandas dataframe
@@ -48,14 +46,12 @@ class QueryBase:
         """, connection)
         connection.close()
         return df
-            
     
-
     # Define a `notes` method that receives an id argument
     # This function should return a pandas dataframe
     def notes(self, id):
         connection = sqlite3.connect(db_path)
-
+        
         # QUERY 2
         # Write an SQL query that returns `note_date`, and `note`
         # from the `notes` table
@@ -71,4 +67,3 @@ class QueryBase:
         """, connection)
         connection.close()
         return df
-
