@@ -25,10 +25,9 @@ class Employee(QueryBase):
         # This query should return the data
         # for all employees in the database
         return """
-        SELECT employee_id,
-               first_name || ' ' || last_name AS employee_name
-        FROM employee
-    """
+            SELECT employee_id, first_name || ' ' || last_name AS employee_name
+            FROM employee
+        """
     
     # Define a method called `username`
     # that receives an `id` argument
@@ -43,7 +42,7 @@ class Employee(QueryBase):
         # to only return the full name of the employee
         # with an id equal to the id argument
         return f"""
-            SELECT employee_name
+            SELECT first_name || ' ' || last_name AS employee_name
             FROM employee
             WHERE employee_id = ({id})
         """
