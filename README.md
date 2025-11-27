@@ -1,6 +1,4 @@
-markdown# Software Engineering for Data Scientists 
-
-This repository contains the **Software Engineering for Data Scientists** final project - an employee events dashboard with machine learning-based recruitment risk predictions.
+This repository contains the **Data Science Dashboard** - an employee events dashboard with machine learning-based recruitment risk predictions.
 
 ## Project Overview
 
