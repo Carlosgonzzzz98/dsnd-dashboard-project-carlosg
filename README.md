@@ -1,4 +1,4 @@
-This repository contains the **Data Science Dashboard**- an employee events dashboard with machine learning-based recruitment risk predictions.
+This repository contains the **Data Science Dashboard** - an employee events dashboard with machine learning-based recruitment risk predictions.
 
 ## Project Overview
 
